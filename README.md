@@ -1,4 +1,4 @@
-## Overview
+# Overview
 
 This plugin specializes in providing autocompletion for form inputs. It is a
 highly customizable and lightweight solution with extensive keyboard
@@ -7,7 +7,7 @@ support.
 It can be used both as AMD module (with loaders like RequireJS), or as
 standalone script.
 
-## Installation
+# Installation
 
 To install this script as standalone, include the following snipped after
 jQuery's own script tag:
@@ -16,7 +16,7 @@ jQuery's own script tag:
 
 To use as AMD module, simple require it as usual.
 
-## Getting started
+# Getting started
 
 You can provide no configuration options if you so desire. In tha case, the
 autocomplete plugin would simply be activated as follows:
@@ -30,7 +30,7 @@ expects JSON data in return, which should contain the array of candidates.
 If you set your server-side code respond in expected manner, your
 autocomplete should just work.
 
-## Customizing
+# Customizing
 
 All of the above can be customized, and a bit more. 
 
@@ -66,7 +66,7 @@ Here is a list of configuration options available:
  + `offset`: Distance of result list from the edges of the form control. 
    Default offset is 0. Any valid CSS dimension can be used.
 
-## Using extra data
+# Using extra data
 
 Suppose you want to have two text inputs in your form. One would be for
 names, and another for emails. Let's also suppose your database contains
@@ -108,7 +108,7 @@ can be accessed as the second argument to the change event handler (in our
 case, we named it `data`). The data is a full copy of the object that
 represents the candidate.
 
-## Styling
+# Styling
 
 The autocomplete plugin creates very simple HTML structure for its own
 needs, but it might be tricky to style it since it is not ever-present. The
