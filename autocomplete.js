@@ -74,6 +74,13 @@
  *    valid CSS width can be used.
  *  + `offset`: Distance of result list from the edges of the form control. 
  *    Default offset is 0. Any valid CSS dimension can be used.
+ *  + `requestData`: Extra data that will be sent along with the request. This
+ *    parameter can either be a function that will be evaluated each time 
+ *    autocomplete fetches data, or an object containing the extra data. The
+ *    function _must_ return an object or else things might not work as
+ *    expected. Note that the query parameter will always override any keys 
+ *    that exist in the extra data. This is meant to be used with special cases
+ *    like server that requests access tokens and similar authentication data.
  *
  * ## Using extra data
  *
@@ -407,6 +414,13 @@ define(function(require) {
 
           // Construct GET params object
           var data = {};
+
+          // Add additional request data if supplied
+          data = typeof opts.requestData === 'function' ? 
+            $.extend(data, opts.requestData()) :
+            $.extend(data, opts.requestData);
+
+          // Add query parameter
           data[opts.queryParam || 'q'] = $(self).val();
 
           // Do the AJAX query.
