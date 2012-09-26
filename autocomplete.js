@@ -124,6 +124,15 @@
  * case, we named it `data`). The data is a full copy of the object that
  * represents the candidate.
  *
+ * A word of warning: always check if data is passed in. Although autocomplete
+ * does trigger the `change` event, it doesn't mean other parts of the code
+ * don't, so there is no guarantee onchange event handler will always receive
+ * the `data` argument. Most notably, this is the case where clicking an
+ * autocomplete candidate causes the field to become unfocused, which triggers
+ * the change event without the `data` argument. Later on, once autocomplete
+ * plugin has done it's thing, it will re-trigger the change event, this time
+ * _with_ the `data` argument.
+ *
  * ## Styling
  *
  * The autocomplete plugin creates very simple HTML structure for its own
