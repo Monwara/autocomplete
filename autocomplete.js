@@ -171,12 +171,13 @@
  *
  */
 
-(function(define) {
-
-define(function(require) {
-
-  var $ = require('jquery');
-
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['jquery'], factory);
+  } else {
+    factory(root.jQuery);
+  }
+})(this, function($) {
   var resultTemplate = '<div class="autocomplete-container">' +
     '<div class="autocomplete-inner"></div>' +
     '</div>';
@@ -458,9 +459,3 @@ define(function(require) {
   };
 });
 
-}(typeof define === 'function' && define.amd ? define : function(fac) {
-  // Modified version of UMD (https://github.com/umdjs/umd) w/o Node support
-  fac(function() {
-    return jQuery;
-  });
-}));
