@@ -374,17 +374,12 @@ define(function(require) {
               );
             }
 
-            // Loop through results and populate the container.
-
-            var candidates;
-            if (opts.objectData) {
-              candidates = results.map(function(result) {
+            // Convert to array of strings if results are objects
+            var candidates = opts.objectData ? results.map(function(result) {
                 return result[opts.objectData];
-              });
-            } else {
-              candidates = results;
-            }
+            }) : results;
 
+            // Populate container
             candidates.forEach(function(candidate, idx) {
               var candidateHTML = '<div class="autocomplete-candidate' +
                 (opts.autoSelectFirst && idx === 0 ? (' ' + SELECTED) : '') +
